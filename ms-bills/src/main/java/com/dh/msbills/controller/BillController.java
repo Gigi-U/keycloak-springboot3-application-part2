@@ -26,17 +26,16 @@ public class BillController {
     public ResponseEntity<List<Bill>> getAll() {
         return ResponseEntity.ok().body(service.getAllBill());
     }
-
-
-    @PostMapping("/new-bill")
-    @PreAuthorize("hasAuthority('GROUP_PROVIDERS')")
+    @PostMapping("/newbill")
+    @PreAuthorize("hasAnyAuthority('GROUP_PROVIDERS')")
     public ResponseEntity <Bill> postNewBill(@RequestBody Bill bill) {
-        return ResponseEntity.ok().body(service.newBill(bill));
+        return ResponseEntity.ok().body(service.saveBill(bill));
     }
 
     @GetMapping("/find")
     public ResponseEntity<List<Bill>> findByUserId(@RequestParam String customerBill, HttpServletResponse response){
         response.addHeader("port", String.valueOf(serverPort));
+       // return ResponseEntity.ok().body(service.findByCustomerBill(customerBill));
         List<Bill> findBill = service.findByCustomerBill(customerBill);
 
         if (findBill.isEmpty()) {

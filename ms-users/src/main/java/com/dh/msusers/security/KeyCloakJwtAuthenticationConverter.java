@@ -1,4 +1,4 @@
-package com.dh.msusers.configuration.security;
+package com.dh.msusers.security;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -28,6 +28,7 @@ public class KeyCloakJwtAuthenticationConverter implements Converter<Jwt, Abstra
     objectMapper.registerModule(new JavaTimeModule());
     resourcesRoles.addAll(extractRoles("resource_access", objectMapper.readTree(objectMapper.writeValueAsString(jwt)).get("claims")));
     resourcesRoles.addAll(extractRoles("realm_access", objectMapper.readTree(objectMapper.writeValueAsString(jwt)).get("claims")));
+    resourcesRoles.addAll(extractGroups("groups",objectMapper.readTree(objectMapper.writeValueAsString(jwt)).get("claims")));
     return resourcesRoles;
   }
 
@@ -45,6 +46,22 @@ public class KeyCloakJwtAuthenticationConverter implements Converter<Jwt, Abstra
 
     return authorityList;
   }
+  private static List<GrantedAuthority> extractGroups(String route, JsonNode jwt) {
+    Set<String>rolesWithPrefix = new HashSet<>();
+
+    jwt.path(route)
+            .elements()
+            .forEachRemaining(e -> e.path("groups")
+                    .elements()
+                    .forEachRemaining(r -> rolesWithPrefix.add("GROUP_" + r.asText())));
+
+    final List<GrantedAuthority> authorityList =
+            AuthorityUtils.createAuthorityList(rolesWithPrefix.toArray(new String[0]));
+
+    return authorityList;
+  }
+
+
 
   public KeyCloakJwtAuthenticationConverter() {
   }

@@ -20,7 +20,7 @@ public class BillService {
     public List<Bill> findByCustomerBill(String customerBill){
         return repository.findByCustomerBill(customerBill);
     }
-    public Bill newBill(Bill bill){
+    public Bill saveBill(Bill bill){
         return repository.save(bill);
     }
 

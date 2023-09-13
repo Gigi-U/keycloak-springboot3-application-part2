@@ -28,7 +28,6 @@ public class KeyCloakJwtAuthenticationConverter implements Converter <Jwt, Abstr
         resourcesRoles.addAll(extractALL("groups", objectMapper.readTree(objectMapper.writeValueAsString(jwt)).get("claims")));
         return resourcesRoles;
     }
-    //  PERSONALIZANDO EXTRACCIÓN. Es más interesante cuando hay más factores.
     private static List<GrantedAuthority> extractALL(String route, JsonNode jwt) {
 
         Set<String> allWithPrefix = new HashSet<>();

@@ -1,6 +1,6 @@
-package com.dh.msusers.repository.feign;
+package com.dh.msusers.repository;
 
-import com.dh.msusers.configuration.feign.OAuthFeignConfig;
+import com.dh.msusers.configuration.OAuthFeignConfig;
 import com.dh.msusers.model.BillDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

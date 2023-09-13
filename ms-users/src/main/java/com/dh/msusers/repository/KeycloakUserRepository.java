@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Repository
-public class KeyclaokUserRepository implements IUserRepository{
+public class KeycloakUserRepository implements IUserRepository{
 
     private final Keycloak keycloakClient;
     @Value("${dh.keycloak.realm}")

@@ -15,9 +15,7 @@ public class User {
     private List<BillDTO> bills;
 
     public User() {
-
     }
-
     public User(String id, String userName, String email, String firstName, String lastName, List<BillDTO> bills) {
         this.id = id;
         this.userName = userName;

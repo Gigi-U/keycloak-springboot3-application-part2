@@ -1,4 +1,4 @@
-package com.dh.msusers.configuration.feign;
+package com.dh.msusers.configuration;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,4 +1,4 @@
-package com.dh.msusers.configuration.feign;
+package com.dh.msusers.configuration;
 
 import feign.RequestInterceptor;
 

@@ -10,6 +10,8 @@ import org.springframework.security.oauth2.client.registration.ReactiveClientReg
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.authentication.logout.ServerLogoutSuccessHandler;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 public class SecurityConfig {
     @Autowired
@@ -18,6 +20,8 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain SecurityWebfilterChain (ServerHttpSecurity http){
         http
+                .cors(withDefaults())
+                .csrf((csrf) -> csrf.disable())
                 .authorizeExchange((exchanges) -> exchanges
                 .anyExchange().authenticated());
         http.oauth2Login(Customizer.withDefaults());
