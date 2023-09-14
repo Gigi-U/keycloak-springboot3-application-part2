@@ -1,6 +1,5 @@
 package com.dh.msusers.service;
 
-import com.dh.msusers.model.BillDTO;
 import com.dh.msusers.model.User;
 import com.dh.msusers.repository.IUserRepository;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,5 @@ public class UserService {
     public Optional<User> findById(String id) {
         return userRepository.findById(id);
     }
-//    public User findById(String id) {
-//        return userRepository.findById(id);
-//    }
+
 }

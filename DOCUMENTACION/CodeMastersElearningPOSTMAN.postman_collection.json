@@ -174,7 +174,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8086/bills/find?customerBill=0d374cd6-4f92-481c-9441-05e79b22740b",
+					"raw": "http://localhost:8086/bills/find?id=0d374cd6-4f92-481c-9441-05e79b22740b",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -186,7 +186,7 @@
 					],
 					"query": [
 						{
-							"key": "customerBill",
+							"key": "id",
 							"value": "0d374cd6-4f92-481c-9441-05e79b22740b"
 						}
 					]

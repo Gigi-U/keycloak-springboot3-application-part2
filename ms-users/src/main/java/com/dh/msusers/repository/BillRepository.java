@@ -1,6 +1,6 @@
 package com.dh.msusers.repository;
 
-import com.dh.msusers.model.BillDTO;
+import com.dh.msusers.model.Bill;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
@@ -14,8 +14,8 @@ public class BillRepository {
     public BillRepository(IFeignBillRepository feignBillRepository) {
         this.feignBillRepository = feignBillRepository;
     }
-    public List<BillDTO> findByUserId(String customerBill){
-        ResponseEntity<List<BillDTO>> response = feignBillRepository.findByUserId(customerBill);
+    public List<Bill> findByUserId(String id){
+        ResponseEntity<List<Bill>> response = feignBillRepository.findByUserId(id);
         return response.getBody();
     }
 }

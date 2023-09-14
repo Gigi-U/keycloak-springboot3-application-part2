@@ -33,15 +33,14 @@ public class BillController {
     }
 
     @GetMapping("/find")
-    public ResponseEntity<List<Bill>> findByUserId(@RequestParam String customerBill, HttpServletResponse response){
+    public ResponseEntity<List<Bill>> findByUserId(@RequestParam String id, HttpServletResponse response){
         response.addHeader("port", String.valueOf(serverPort));
-       // return ResponseEntity.ok().body(service.findByCustomerBill(customerBill));
-        List<Bill> findBill = service.findByCustomerBill(customerBill);
+        List<Bill> findBill = service.findByCustomerBill(id);
 
         if (findBill.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok().body(service.findByCustomerBill(customerBill));
+            return ResponseEntity.ok().body(service.findByCustomerBill(id));
         }
 
     }

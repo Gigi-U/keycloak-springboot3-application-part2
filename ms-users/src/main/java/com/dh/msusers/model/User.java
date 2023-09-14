@@ -5,18 +5,25 @@ import lombok.*;
 import java.util.List;
 
 
-@Builder
+@Data
+@Getter
+@Setter
 public class User {
     private String id;
     private String userName;
     private String email;
     private String firstName;
     private String lastName;
-    private List<BillDTO> bills;
+    private List<Bill> bills;
 
-    public User() {
+    public User(String id, String userName, String email, String firstName, String lastName) {
+        this.id = id;
+        this.userName = userName;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
-    public User(String id, String userName, String email, String firstName, String lastName, List<BillDTO> bills) {
+    public User(String id, String userName, String email, String firstName, String lastName, List<Bill> bills) {
         this.id = id;
         this.userName = userName;
         this.email = email;
@@ -65,11 +72,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public List<BillDTO> getBills() {
+    public List<Bill> getBills() {
         return bills;
     }
 
-    public void setBills(List<BillDTO> bills) {
+    public void setBills(List<Bill> bills) {
         this.bills = bills;
     }
 }

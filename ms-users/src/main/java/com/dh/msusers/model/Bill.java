@@ -3,7 +3,7 @@ package com.dh.msusers.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties
-public class BillDTO {
+public class Bill {
     private String idBill;
 
     private String customerBill;
@@ -12,10 +12,10 @@ public class BillDTO {
 
     private Double totalPrice;
 
-    public BillDTO() {
+    public Bill() {
     }
 
-    public BillDTO(String idBill, String customerBill, String productBill, Double totalPrice) {
+    public Bill(String idBill, String customerBill, String productBill, Double totalPrice) {
         this.idBill = idBill;
         this.customerBill = customerBill;
         this.productBill = productBill;
