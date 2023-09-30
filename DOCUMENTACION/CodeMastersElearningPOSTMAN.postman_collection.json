@@ -136,7 +136,7 @@
 					"oauth2": [
 						{
 							"key": "tokenName",
-							"value": "provider-Token",
+							"value": "gi-Token",
 							"type": "string"
 						},
 						{

@@ -20,7 +20,8 @@ public class KeycloakUserRepository implements IUserRepository{
     }
 
     private User toUser(UserRepresentation userRepresentation) {
-        return new User(userRepresentation.getId(),
+        return new User(
+                userRepresentation.getId(),
                 userRepresentation.getUsername(),
                 userRepresentation.getEmail(),
                 userRepresentation.getFirstName(),
@@ -29,7 +30,6 @@ public class KeycloakUserRepository implements IUserRepository{
 
     @Override
     public Optional<User>findById(String id) {
-
         UserRepresentation userRepresentation = keycloakClient.realm(realm)
                     .users().get(id)
                     .toRepresentation();

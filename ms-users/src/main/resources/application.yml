@@ -13,14 +13,14 @@ spring:
           issuer-uri: http://localhost:8080/realms/CodeMastersElearning
       client:
         registration:
-          keycloak-provider:
+          keycloak:
             client-id: ms-users-client
             client-secret: eSY1iQNfIhocDMQrkG7sFJvbhRLggvnG
             scope:
               - openid
             authorization-grant-type: client_credentials
         provider:
-          keycloak-provider:
+          keycloak:
             issuer-uri: http://localhost:8080/realms/CodeMastersElearning
             #token-uri: http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/token
 

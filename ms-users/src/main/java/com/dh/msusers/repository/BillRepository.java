@@ -14,8 +14,8 @@ public class BillRepository {
     public BillRepository(IFeignBillRepository feignBillRepository) {
         this.feignBillRepository = feignBillRepository;
     }
-    public List<Bill> findByUserId(String id){
-        ResponseEntity<List<Bill>> response = feignBillRepository.findByUserId(id);
+    public List<Bill> findByUserId(String customerBill){
+        ResponseEntity<List<Bill>> response = feignBillRepository.findByUserId(customerBill);
         return response.getBody();
     }
 }

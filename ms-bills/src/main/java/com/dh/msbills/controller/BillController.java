@@ -20,27 +20,32 @@ public class BillController {
 
     @Value("${server.port}")
     private int serverPort;
+    @GetMapping("/ping")
+    public String pong() {
+        return "ping-pong";
+    }
 
     @GetMapping("/all")
     @PreAuthorize("hasRole('ROLE_user')")
     public ResponseEntity<List<Bill>> getAll() {
         return ResponseEntity.ok().body(service.getAllBill());
     }
+
     @PostMapping("/newbill")
-    @PreAuthorize("hasAnyAuthority('GROUP_PROVIDERS')")
+    @PreAuthorize("hasAnyAuthority('PROVIDERS')")
     public ResponseEntity <Bill> postNewBill(@RequestBody Bill bill) {
         return ResponseEntity.ok().body(service.saveBill(bill));
     }
 
     @GetMapping("/find")
-    public ResponseEntity<List<Bill>> findByUserId(@RequestParam String id, HttpServletResponse response){
+    public ResponseEntity<List<Bill>> findByUserId(@RequestParam String customerBill, HttpServletResponse response){
         response.addHeader("port", String.valueOf(serverPort));
-        List<Bill> findBill = service.findByCustomerBill(id);
 
-        if (findBill.isEmpty()) {
+        List<Bill> foundBills = service.findByCustomerBill(customerBill);
+        if (foundBills.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok().body(service.findByCustomerBill(id));
+            return ResponseEntity.ok().body(service.findByCustomerBill(customerBill));
         }
 
     }

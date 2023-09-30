@@ -14,5 +14,5 @@ import java.util.List;
 public interface IFeignBillRepository {
 
     @RequestMapping(method = RequestMethod.GET,value = "/bills/find")
-    ResponseEntity<List<Bill>> findByUserId(@RequestParam String id);
+    ResponseEntity<List<Bill>> findByUserId(@RequestParam String customerBill);
 }

@@ -2,6 +2,7 @@ package com.dh.msusers.controller;
 
 import com.dh.msusers.model.User;
 import com.dh.msusers.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ import java.util.Optional;
 @RequestMapping("/users")
 public class UserRestController {
     private UserService userService;
-
+    @Autowired
     public UserRestController(UserService userService) {
         this.userService = userService;
     }
