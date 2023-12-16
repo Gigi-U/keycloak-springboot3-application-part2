@@ -15,21 +15,21 @@ spring:
         registration:
           keycloak:
             client-id: ms-users-client
-            client-secret: eSY1iQNfIhocDMQrkG7sFJvbhRLggvnG
+            client-secret: Vnva8ic8ZZdIf7zSanuUbAXQcXWuaYQb
             scope:
               - openid
             authorization-grant-type: client_credentials
         provider:
           keycloak:
             issuer-uri: http://localhost:8080/realms/CodeMastersElearning
-            #token-uri: http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/token
+            token-uri: http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/token
 
 dh:
   keycloak:
     serverUrl: http://localhost:8080
     realm: CodeMastersElearning
     clientId: ms-users-client
-    clientSecret: eSY1iQNfIhocDMQrkG7sFJvbhRLggvnG
+    clientSecret: Vnva8ic8ZZdIf7zSanuUbAXQcXWuaYQb
 
 eureka:
   instance:

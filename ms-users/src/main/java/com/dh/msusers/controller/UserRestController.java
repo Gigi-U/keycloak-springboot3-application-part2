@@ -17,9 +17,11 @@ public class UserRestController {
         this.userService = userService;
     }
 
-    // http://localhost:8090/api/v1/users/find/0d374cd6-4f92-481c-9441-05e79b22740b
+    // http://localhost:8090/api/v1/users/find/a5f7117b-f40f-487d-bf4f-f259db296946     provider2
+    //http://localhost:8090/api/v1/users/find/d94704ec-c9f5-48f2-9f4a-3e6bd57ad0c9      provider1
+
     @GetMapping("/find/{id}")
-    public ResponseEntity<User> findUserById(@PathVariable String id) {
+    public ResponseEntity<User> findByCustomerBill(@PathVariable String id) {
         Optional<User> optionalUser = userService.findById(id);
         if (optionalUser.isPresent()) {
 
